@@ -7,7 +7,10 @@
 
 ## 收录清单
 
-注意：当同时部署多个Notebook时，请使用不同端口号～
+注意:
+
+1. 当同时部署多个Notebook时，请使用不同端口号～
+2. 部署前请按需修改您的`-v`映射路径
 
 - [C&C++](八股文之C&C++.ipynb)
 
@@ -19,6 +22,7 @@
   # 镜像部署（默认密码为123456）
   docker run -d \
     -p 8888:8888 \
+    -v $(PWD)/Knowledge:/home/jovyan/work \
     -e JUPYTER_ENABLE_LAB=yes \
     -e GRANT_SUDO=yes \
     --restart=always \
@@ -41,6 +45,7 @@
   # 镜像部署（默认密码为123456）
   docker run -d \
     -p 8888:8888 \
+    -v $(PWD)/Knowledge:/home/jovyan/work \
     -e JUPYTER_ENABLE_LAB=yes \
     -e GRANT_SUDO=yes \
     --restart=always \
